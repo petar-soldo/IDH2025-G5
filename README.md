@@ -1,0 +1,1 @@
+This is a project for the course Introduction to Digital Humanities at KU Leuven in the first semester of the academic year 2025/2026, carried out by Group #5 (Victor Close, Koji Okomura and Petar Soldo). More information to come.
