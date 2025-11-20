@@ -5,6 +5,6 @@ This is a project for the course Introduction to Digital Humanities at KU Leuven
 
 This project is the final exam project for the course [_Introduction to Digital Humanities_](https://onderwijsaanbod.kuleuven.be/syllabi/e/G0R03CE), in the [_Advanced Master of Digital Humanities_](https://www.kuleuven.be/programmes/master-digital-humanities) programme at KU Leuven.
 
-The aim of the project is to explore, clean and analyze the data from the _Books divided by Genre from the Digitised 19th century books dataset_ (https://doi.org/10.23636/1140 dataset), hosted by the British Library. 
+The aim of the project is to explore, clean and analyze the data from the _Books divided by Genre from the Digitised 19th century books_ dataset (https://doi.org/10.23636/1140), hosted by the British Library. 
 
-To this, we use [OpenRefine](https://openrefine.org/) and a number of other tools, to be chosen on the go or in the individual phase of the project. 
+To do this, we use [OpenRefine](https://openrefine.org/) and a number of other tools, to be chosen on the go or in the individual phase of the project. 
