@@ -1,0 +1,5 @@
+Use this file to report the number of wrong rows in your sample:
+Koji:
+Victor:
+Petar_cleaning
+Petar_data:
