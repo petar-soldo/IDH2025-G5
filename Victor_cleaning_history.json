@@ -1,0 +1,6024 @@
+[
+  {
+    "op": "core/column-rename",
+    "oldColumnName": "Imprint",
+    "newColumnName": "Imprint_ORIGINAL",
+    "description": "Renommer la colonne Imprint} en Imprint_ORIGINAL"
+  },
+  {
+    "op": "core/column-addition",
+    "engineConfig": {
+      "facets": [],
+      "mode": "row-based"
+    },
+    "baseColumnName": "Imprint_ORIGINAL",
+    "expression": "grel:value.find(/[0-9]{4}/)[0]",
+    "onError": "set-to-blank",
+    "newColumnName": "Date",
+    "columnInsertIndex": 15,
+    "description": "Créer la colonne Date à lindex {1} sur la base de la colonne {2} à laide de lexpression {3}"
+  },
+  {
+    "op": "core/column-addition",
+    "engineConfig": {
+      "facets": [],
+      "mode": "row-based"
+    },
+    "baseColumnName": "Imprint_ORIGINAL",
+    "expression": "grel:value",
+    "onError": "set-to-blank",
+    "newColumnName": "Location",
+    "columnInsertIndex": 15,
+    "description": "Créer la colonne Location à lindex {1} sur la base de la colonne {2} à laide de lexpression {3}"
+  },
+  {
+    "op": "core/text-transform",
+    "engineConfig": {
+      "facets": [],
+      "mode": "row-based"
+    },
+    "columnName": "Location",
+    "expression": "grel:value.replace(/\\[.+\\]/,\"\").trim()",
+    "onError": "keep-original",
+    "repeat": false,
+    "repeatCount": 10,
+    "description": "Transformer le texte sur les cellules de la colonne Location à laide de lexpression grel:value.replace(/\\[.+\\]/,\"\").trim()"
+  },
+  {
+    "op": "core/text-transform",
+    "engineConfig": {
+      "facets": [],
+      "mode": "row-based"
+    },
+    "columnName": "Location",
+    "expression": "grel:value.replace(/\\(.+\\)/,\"\").trim()",
+    "onError": "keep-original",
+    "repeat": false,
+    "repeatCount": 10,
+    "description": "Transformer le texte sur les cellules de la colonne Location à laide de lexpression grel:value.replace(/\\(.+\\)/,\"\").trim()"
+  },
+  {
+    "op": "core/text-transform",
+    "engineConfig": {
+      "facets": [],
+      "mode": "row-based"
+    },
+    "columnName": "Location",
+    "expression": "grel:value.replace(/[0-9]|\\.|\\,|\\&|\\[|\\]|\\?|\\:|\\;|\\(|\\)|\\-/,\" \").trim()",
+    "onError": "keep-original",
+    "repeat": false,
+    "repeatCount": 10,
+    "description": "Transformer le texte sur les cellules de la colonne Location à laide de lexpression grel:value.replace(/[0-9]|\\.|\\,|\\&|\\[|\\]|\\?|\\:|\\;|\\(|\\)|\\-/,\" \").trim()"
+  },
+  {
+    "op": "core/text-transform",
+    "engineConfig": {
+      "facets": [],
+      "mode": "row-based"
+    },
+    "columnName": "Location",
+    "expression": "grel:value.replace(/\\s[a-z]+/,\"\").trim()",
+    "onError": "keep-original",
+    "repeat": false,
+    "repeatCount": 10,
+    "description": "Transformer le texte sur les cellules de la colonne Location à laide de lexpression grel:value.replace(/\\s[a-z]+/,\"\").trim()"
+  },
+  {
+    "op": "core/text-transform",
+    "engineConfig": {
+      "facets": [],
+      "mode": "row-based"
+    },
+    "columnName": "Location",
+    "expression": "grel:value.replace(/^[a-z]+/,\"\").trim()",
+    "onError": "keep-original",
+    "repeat": false,
+    "repeatCount": 10,
+    "description": "Transformer le texte sur les cellules de la colonne Location à laide de lexpression grel:value.replace(/^[a-z]+/,\"\").trim()"
+  },
+  {
+    "op": "core/text-transform",
+    "engineConfig": {
+      "facets": [],
+      "mode": "row-based"
+    },
+    "columnName": "Location",
+    "expression": "grel:value.replace(/\\s?[A-Z][a-z]?{1}?\\s/,\" \").trim()",
+    "onError": "keep-original",
+    "repeat": false,
+    "repeatCount": 10,
+    "description": "Transformer le texte sur les cellules de la colonne Location à laide de lexpression grel:value.replace(/\\s?[A-Z][a-z]?{1}?\\s/,\" \").trim()"
+  },
+  {
+    "op": "core/text-transform",
+    "engineConfig": {
+      "facets": [],
+      "mode": "row-based"
+    },
+    "columnName": "Location",
+    "expression": "grel:value.replace(/\\s[A-Z][a-z]?{1}?$/,\" \")",
+    "onError": "keep-original",
+    "repeat": false,
+    "repeatCount": 10,
+    "description": "Transformer le texte sur les cellules de la colonne Location à laide de lexpression grel:value.replace(/\\s[A-Z][a-z]?{1}?$/,\" \")"
+  },
+  {
+    "op": "core/text-transform",
+    "engineConfig": {
+      "facets": [],
+      "mode": "row-based"
+    },
+    "columnName": "Location",
+    "expression": "value.trim()",
+    "onError": "keep-original",
+    "repeat": false,
+    "repeatCount": 10,
+    "description": "Transformer le texte sur les cellules de la colonne Location à laide de lexpression value.trim()"
+  },
+  {
+    "op": "core/text-transform",
+    "engineConfig": {
+      "facets": [],
+      "mode": "row-based"
+    },
+    "columnName": "Location",
+    "expression": "value.replace(/[\\p{Zs}\\s]+/,' ')",
+    "onError": "keep-original",
+    "repeat": false,
+    "repeatCount": 10,
+    "description": "Transformer le texte sur les cellules de la colonne Location à laide de lexpression value.replace(/[\\p{Zs}\\s]+/,' ')"
+  },
+  {
+    "op": "core/text-transform",
+    "engineConfig": {
+      "facets": [],
+      "mode": "row-based"
+    },
+    "columnName": "Location",
+    "expression": "grel:value.replace(/New\\s/,\"New-\").trim()",
+    "onError": "keep-original",
+    "repeat": false,
+    "repeatCount": 10,
+    "description": "Transformer le texte sur les cellules de la colonne Location à laide de lexpression grel:value.replace(/New\\s/,\"New-\").trim()"
+  },
+  {
+    "op": "core/text-transform",
+    "engineConfig": {
+      "facets": [],
+      "mode": "row-based"
+    },
+    "columnName": "Location",
+    "expression": "grel:value.replace(/San\\s/,\"San-\").trim()",
+    "onError": "keep-original",
+    "repeat": false,
+    "repeatCount": 10,
+    "description": "Transformer le texte sur les cellules de la colonne Location à laide de lexpression grel:value.replace(/San\\s/,\"San-\").trim()"
+  },
+  {
+    "op": "core/text-transform",
+    "engineConfig": {
+      "facets": [],
+      "mode": "row-based"
+    },
+    "columnName": "Location",
+    "expression": "grel:value.replace(/Saint\\s/,\"Saint-\").trim()",
+    "onError": "keep-original",
+    "repeat": false,
+    "repeatCount": 10,
+    "description": "Transformer le texte sur les cellules de la colonne Location à laide de lexpression grel:value.replace(/Saint\\s/,\"Saint-\").trim()"
+  },
+  {
+    "op": "core/column-split",
+    "engineConfig": {
+      "facets": [],
+      "mode": "row-based"
+    },
+    "columnName": "Location",
+    "guessCellType": true,
+    "removeOriginalColumn": false,
+    "mode": "separator",
+    "separator": " ",
+    "regex": false,
+    "maxColumns": 0,
+    "description": "Diviser la colonne Location par le séparateur"
+  },
+  {
+    "op": "core/column-removal",
+    "columnName": "Location 20",
+    "description": "Supprimer la colonne Location 20"
+  },
+  {
+    "op": "core/column-removal",
+    "columnName": "Location 19",
+    "description": "Supprimer la colonne Location 19"
+  },
+  {
+    "op": "core/column-removal",
+    "columnName": "Location 18",
+    "description": "Supprimer la colonne Location 18"
+  },
+  {
+    "op": "core/column-removal",
+    "columnName": "Location 17",
+    "description": "Supprimer la colonne Location 17"
+  },
+  {
+    "op": "core/column-removal",
+    "columnName": "Location 16",
+    "description": "Supprimer la colonne Location 16"
+  },
+  {
+    "op": "core/column-removal",
+    "columnName": "Location 15",
+    "description": "Supprimer la colonne Location 15"
+  },
+  {
+    "op": "core/column-removal",
+    "columnName": "Location 14",
+    "description": "Supprimer la colonne Location 14"
+  },
+  {
+    "op": "core/column-removal",
+    "columnName": "Location 13",
+    "description": "Supprimer la colonne Location 13"
+  },
+  {
+    "op": "core/column-removal",
+    "columnName": "Location 10",
+    "description": "Supprimer la colonne Location 10"
+  },
+  {
+    "op": "core/column-removal",
+    "columnName": "Location 9",
+    "description": "Supprimer la colonne Location 9"
+  },
+  {
+    "op": "core/column-removal",
+    "columnName": "Location 8",
+    "description": "Supprimer la colonne Location 8"
+  },
+  {
+    "op": "core/column-removal",
+    "columnName": "Location 7",
+    "description": "Supprimer la colonne Location 7"
+  },
+  {
+    "op": "core/column-removal",
+    "columnName": "Location 12",
+    "description": "Supprimer la colonne Location 12"
+  },
+  {
+    "op": "core/column-removal",
+    "columnName": "Location 11",
+    "description": "Supprimer la colonne Location 11"
+  },
+  {
+    "op": "core/text-transform",
+    "engineConfig": {
+      "facets": [],
+      "mode": "row-based"
+    },
+    "columnName": "Location 6",
+    "expression": "grel:if(value == \"London\", value, null)",
+    "onError": "keep-original",
+    "repeat": false,
+    "repeatCount": 10,
+    "description": "Transformer le texte sur les cellules de la colonne Location 6 à laide de lexpression grel:if(value == \"London\", value, null)"
+  },
+  {
+    "op": "core/text-transform",
+    "engineConfig": {
+      "facets": [],
+      "mode": "row-based"
+    },
+    "columnName": "Location 5",
+    "expression": "jython:v = value\nif v in ('London','New-York','Edinburgh'):\n    return value \nelse:\n    return None",
+    "onError": "keep-original",
+    "repeat": false,
+    "repeatCount": 10,
+    "description": "Transformer le texte sur les cellules de la colonne Location 5 à laide de lexpression jython:v = value\nif v in ('London','New-York','Edinburgh'):\n    return value \nelse:\n    return None"
+  },
+  {
+    "op": "core/text-transform",
+    "engineConfig": {
+      "facets": [],
+      "mode": "row-based"
+    },
+    "columnName": "Location 4",
+    "expression": "jython:v = value\nif v in ('London','Edinburgh','New-York','Cambridge','Dublin','Liverpool','Nuremberg','York'):\n    return value\nelse:\n    return None",
+    "onError": "keep-original",
+    "repeat": false,
+    "repeatCount": 10,
+    "description": "Transformer le texte sur les cellules de la colonne Location 4 à laide de lexpression jython:v = value\nif v in ('London','Edinburgh','New-York','Cambridge','Dublin','Liverpool','Nuremberg','York'):\n    return value\nelse:\n    return None"
+  },
+  {
+    "op": "core/text-transform",
+    "engineConfig": {
+      "facets": [],
+      "mode": "row-based"
+    },
+    "columnName": "Location 3",
+    "expression": "jython:v = value\nif v in ('London','New-York', 'Edinburgh', 'Stanford', 'Leipzig', 'Cambridge', 'Dublin', 'Toronto', 'Wellington'):\n    return value\nelse:\n    return None",
+    "onError": "keep-original",
+    "repeat": false,
+    "repeatCount": 10,
+    "description": "Transformer le texte sur les cellules de la colonne Location 3 à laide de lexpression jython:v = value\nif v in ('London','New-York', 'Edinburgh', 'Stanford', 'Leipzig', 'Cambridge', 'Dublin', 'Toronto', 'Wellington'):\n    return value\nelse:\n    return None"
+  },
+  {
+    "op": "core/column-addition",
+    "engineConfig": {
+      "facets": [],
+      "mode": "row-based"
+    },
+    "baseColumnName": "Location 1",
+    "expression": "join ([coalesce(cells['Location 1'].value,''),coalesce(cells['Location 2'].value,''),coalesce(cells['Location 3'].value,''),coalesce(cells['Location 4'].value,''),coalesce(cells['Location 5'].value,''),coalesce(cells['Location 6'].value,'')],' ')",
+    "onError": "keep-original",
+    "newColumnName": "Location_col_merged",
+    "columnInsertIndex": 17,
+    "description": "Créer la colonne Location_col_merged à lindex {1} sur la base de la colonne {2} à laide de lexpression {3}"
+  },
+  {
+    "op": "core/column-move",
+    "columnName": "Location_col_merged",
+    "index": 16,
+    "description": "Déplacer la colonne Location_col_merged vers la position 16"
+  },
+  {
+    "op": "core/column-move",
+    "columnName": "Location_col_merged",
+    "index": 15,
+    "description": "Déplacer la colonne Location_col_merged vers la position 15"
+  },
+  {
+    "op": "core/mass-edit",
+    "engineConfig": {
+      "facets": [],
+      "mode": "row-based"
+    },
+    "columnName": "Location_col_merged",
+    "expression": "value",
+    "edits": [
+      {
+        "from": [
+          "London     ",
+          "London London    ",
+          "London 'London    ",
+          "London *    ",
+          "London “    ",
+          "London “London    "
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "London     "
+      },
+      {
+        "from": [
+          "Edinburgh William  London  ",
+          "Edinburgh William   London ",
+          "London William   Edinburgh ",
+          "London William  Edinburgh  ",
+          "London William  Edinburgh Edinburgh "
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "Edinburgh London  "
+      },
+      {
+        "from": [
+          "London Authors’    ",
+          "London Author’s    ",
+          "London Author's    ",
+          "London Authors    ",
+          "London Authors'    "
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "London"
+      },
+      {
+        "from": [
+          "Sampson Low London   ",
+          "Sampson Low    London",
+          "Sampson Low  London  ",
+          "Sampson Low   London "
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "London   "
+      },
+      {
+        "from": [
+          "London New-York    ",
+          "New-York London    ",
+          "London New-York London   ",
+          "New-York London   London "
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "London New-York    "
+      },
+      {
+        "from": [
+          "London Printed    ",
+          "Printed London    ",
+          "London Printed    London",
+          "London Printed London   "
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "London"
+      },
+      {
+        "from": [
+          "Bombay “Times    ",
+          "Bombay Times    ",
+          "Bombay Times'    ",
+          "Bombay 'Times    "
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "Bombay"
+      },
+      {
+        "from": [
+          "Edinburgh London    ",
+          "London Edinburgh    ",
+          "Edinburgh London   Edinburgh ",
+          "London Edinburgh London   "
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "Edinburgh London    "
+      },
+      {
+        "from": [
+          "Chalon Saône    ",
+          "Châlon Saône    ",
+          "Châlon Sâone    "
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "Chalon-Saône    "
+      },
+      {
+        "from": [
+          "Québec     ",
+          "Quebec     ",
+          "Quebec Quebec    "
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "Québec     "
+      },
+      {
+        "from": [
+          "Singapore     ",
+          "Singapore Singapore    ",
+          "Singapore “Singapore    "
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "Singapore     "
+      },
+      {
+        "from": [
+          "Jacob Tonson London   ",
+          "Jacob Tonson   London ",
+          "Jacob Tonson  London  "
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "London   "
+      },
+      {
+        "from": [
+          "Bombay     ",
+          "Bombay Bombay    ",
+          "Bombay “Bombay    "
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "Bombay     "
+      },
+      {
+        "from": [
+          "Calcutta D’Rozario    ",
+          "Calcutta D'Rozario    ",
+          "Calcutta D’rozario    "
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "Calcutta "
+      },
+      {
+        "from": [
+          "Genève Bâle    ",
+          "Bâle Genève    ",
+          "Genève Bale    "
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "Genève Bâle    "
+      },
+      {
+        "from": [
+          "London Hatchards    ",
+          "Hatchards London    ",
+          "London Hätchards    "
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "London "
+      },
+      {
+        "from": [
+          "Paryż     ",
+          "Paryz     ",
+          "Paryz̤     "
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "Paryż     "
+      },
+      {
+        "from": [
+          "London Macmillan    ",
+          "Macmillan London    ",
+          "London MacMillan    "
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "London"
+      },
+      {
+        "from": [
+          "Győr     ",
+          "Gyor     ",
+          "Györ     "
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "Győr     "
+      },
+      {
+        "from": [
+          "Henry Herringman London   ",
+          "Henry Herringman   London ",
+          "Henry Herringman  London  "
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "London   "
+      },
+      {
+        "from": [
+          "Bury Edmund's    ",
+          "Bury Edmunds    ",
+          "Bury Edmund’s    "
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "Bury Edmund's    "
+      },
+      {
+        "from": [
+          "London Tonson    ",
+          "Tonson London    ",
+          "Tonson Tonson London   "
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "London"
+      },
+      {
+        "from": [
+          "Kegan Paul London   ",
+          "Kegan Paul  London  ",
+          "Kegan Paul   London "
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "London   "
+      },
+      {
+        "from": [
+          "Bogotá     ",
+          "Bogota     ",
+          "Bogotà     "
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "Bogotá     "
+      },
+      {
+        "from": [
+          "Macmillan London New-York   ",
+          "Macmillan New-York  London  ",
+          "London Macmillan New-York   "
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "London New-York   "
+      },
+      {
+        "from": [
+          "London Stock    ",
+          "Stock London    "
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "London"
+      },
+      {
+        "from": [
+          "London Griffin    ",
+          "Griffin London    "
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "London"
+      },
+      {
+        "from": [
+          "London Clarke    ",
+          "Clarke London    "
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "London"
+      },
+      {
+        "from": [
+          "Edinburgh Menzies    ",
+          "Menzies Edinburgh    "
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "Edinburgh   "
+      },
+      {
+        "from": [
+          "London Saxon    ",
+          "Saxon London    "
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "London"
+      },
+      {
+        "from": [
+          "London Cambridge    ",
+          "Cambridge London    "
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "London Cambridge    "
+      },
+      {
+        "from": [
+          "London Warrington    ",
+          "Warrington London    "
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "London Warrington    "
+      },
+      {
+        "from": [
+          "New-York Philadelphia    ",
+          "Philadelphia New-York    "
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "New-York Philadelphia    "
+      },
+      {
+        "from": [
+          "Bliss Sands London   ",
+          "Bliss Sands  London  "
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "London   "
+      },
+      {
+        "from": [
+          "John Lane London   ",
+          "John Lane    London"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "London   "
+      },
+      {
+        "from": [
+          "Dublin McGee    ",
+          "McGee Dublin    "
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "Dublin"
+      },
+      {
+        "from": [
+          "London “Fun”    ",
+          "“Fun” London    "
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "London "
+      },
+      {
+        "from": [
+          "Cann Plymouth    ",
+          "Plymouth Cann    "
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "Plymouth    "
+      },
+      {
+        "from": [
+          "London East    ",
+          "London “East London   "
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "London"
+      },
+      {
+        "from": [
+          "London Hutchinson    ",
+          "Hutchinson London    "
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "London"
+      },
+      {
+        "from": [
+          "Philadelphia Butler    ",
+          "Butler Philadelphia    "
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "Philadelphia"
+      },
+      {
+        "from": [
+          "Oldham Clegg    ",
+          "Clegg Oldham    "
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "Oldham Clegg    "
+      },
+      {
+        "from": [
+          "London Methuen    ",
+          "Methuen London    "
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "London "
+      },
+      {
+        "from": [
+          "London Lane    ",
+          "Lane London    "
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "London"
+      },
+      {
+        "from": [
+          "Dublin Swan    ",
+          "Swan Dublin    "
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "Dublin"
+      },
+      {
+        "from": [
+          "London Imprinted    ",
+          "Imprinted London    "
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "London "
+      },
+      {
+        "from": [
+          "Napoli Roma    ",
+          "Roma Napoli    "
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "Napoli Roma    "
+      },
+      {
+        "from": [
+          "London Gilliver    ",
+          "Gilliver London    "
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "London"
+      },
+      {
+        "from": [
+          "London Rivington    ",
+          "Rivington London    "
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "London"
+      },
+      {
+        "from": [
+          "Rennes Paris    ",
+          "Paris Rennes    "
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "Rennes Paris    "
+      },
+      {
+        "from": [
+          "London Constable    ",
+          "Constable London    "
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "London  "
+      },
+      {
+        "from": [
+          "Edinburgh Blackwood    ",
+          "Blackwood Edinburgh    "
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "Edinburgh "
+      },
+      {
+        "from": [
+          "Merida Yucatan    ",
+          "Mérida Yucatan    "
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "Merida"
+      },
+      {
+        "from": [
+          "London Ipswich    ",
+          "Ipswich London    "
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "London"
+      },
+      {
+        "from": [
+          "Gratz     ",
+          "Grätz     "
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "Gratz     "
+      },
+      {
+        "from": [
+          "London Richards    ",
+          "Richards London    "
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "London"
+      },
+      {
+        "from": [
+          "New-York Trübner London   ",
+          "Trübner London New-York   "
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "New-York"
+      },
+      {
+        "from": [
+          "Colchester     ",
+          "Colchester Colchester    "
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "Colchester     "
+      },
+      {
+        "from": [
+          "London Ward    ",
+          "Ward London    "
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "London"
+      },
+      {
+        "from": [
+          "London Chester    ",
+          "Chester London    "
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "London"
+      },
+      {
+        "from": [
+          "London Longman    ",
+          "Longman London    "
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "London"
+      },
+      {
+        "from": [
+          "London Kearsley    ",
+          "Kearsley London    "
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "London"
+      },
+      {
+        "from": [
+          "Paris Dijon    ",
+          "Dijon Paris    "
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "Paris Dijon    "
+      },
+      {
+        "from": [
+          "Leipzig Wien    ",
+          "Wien Leipzig    "
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "Leipzig Wien    "
+      },
+      {
+        "from": [
+          "London Nimmo    ",
+          "Nimmo London    "
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "London "
+      },
+      {
+        "from": [
+          "London Tenby    ",
+          "Tenby London    "
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "London  "
+      },
+      {
+        "from": [
+          "London Thacker    ",
+          "Thacker London    "
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "London"
+      },
+      {
+        "from": [
+          "London Stott    ",
+          "Stott London    "
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "London"
+      },
+      {
+        "from": [
+          "Glasgow Maclehose    ",
+          "Glasgow MacLehose    "
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "Glasgow"
+      },
+      {
+        "from": [
+          "Dessau Leipzig    ",
+          "Leipzig Dessau    "
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "Dessau Leipzig    "
+      },
+      {
+        "from": [
+          "Hereford London    ",
+          "London Hereford    "
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "London    "
+      },
+      {
+        "from": [
+          "Hastings London    ",
+          "London Hastings    "
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "London    "
+      },
+      {
+        "from": [
+          "Providence     ",
+          "Providence Providence    "
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "Providence     "
+      },
+      {
+        "from": [
+          "Yeovil Western    ",
+          "Yeovil “Western    "
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "Yeovil"
+      },
+      {
+        "from": [
+          "London Cassell    ",
+          "Cassell London    "
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "London"
+      },
+      {
+        "from": [
+          "Zurich Frauenfeld    ",
+          "Zürich Frauenfeld    "
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "Zurich   "
+      },
+      {
+        "from": [
+          "London Bell    ",
+          "Bell London    "
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "London   "
+      },
+      {
+        "from": [
+          "Boston     ",
+          "Boston Boston    "
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "Boston     "
+      },
+      {
+        "from": [
+          "London Johnson    ",
+          "Johnson London    "
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "London "
+      },
+      {
+        "from": [
+          "Ἀθηνησιν     ",
+          "Ἀθηνῃσιν     "
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "Ἀθηνησιν     "
+      },
+      {
+        "from": [
+          "London Darling    ",
+          "Darling London    "
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "London"
+      },
+      {
+        "from": [
+          "Melbourne Bailliere    ",
+          "Melbourne Baillière    "
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "Melbourne "
+      },
+      {
+        "from": [
+          "London Truro    ",
+          "Truro London    "
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "London  "
+      },
+      {
+        "from": [
+          "London Swift    ",
+          "Swift London    "
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "London  "
+      },
+      {
+        "from": [
+          "Lippincott London    ",
+          "London Lippincott    "
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "London    "
+      },
+      {
+        "from": [
+          "Boston Ginn    ",
+          "Ginn Boston    "
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "Boston   "
+      },
+      {
+        "from": [
+          "Edinburgh Guthrie    ",
+          "Guthrie Edinburgh    "
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "Edinburgh"
+      },
+      {
+        "from": [
+          "Dublin Sullivan    ",
+          "Sullivan Dublin    "
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "Dublin  "
+      },
+      {
+        "from": [
+          "London Warne    ",
+          "Warne London    "
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "London"
+      },
+      {
+        "from": [
+          "Paisley Gardner    ",
+          "Gardner Paisley    "
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": ""
+      },
+      {
+        "from": [
+          "Lübeck     ",
+          "Lubeck     "
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "Lübeck     "
+      },
+      {
+        "from": [
+          "London Liverpool    ",
+          "Liverpool London    "
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "London Liverpool    "
+      },
+      {
+        "from": [
+          "Vernor Hood    London",
+          "Vernor Hood  London  "
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "London"
+      },
+      {
+        "from": [
+          "London Bowden    ",
+          "Bowden London    "
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "London"
+      },
+      {
+        "from": [
+          "Flint London    ",
+          "London Flint    "
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "London    "
+      },
+      {
+        "from": [
+          "London Cadell    ",
+          "Cadell London    "
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "London"
+      },
+      {
+        "from": [
+          "Teignmouth     ",
+          "Teignmouth Teignmouth    "
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "Teignmouth     "
+      },
+      {
+        "from": [
+          "Malaga     ",
+          "Málaga     "
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "Malaga     "
+      },
+      {
+        "from": [
+          "London Parker    ",
+          "Parker London    "
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "London"
+      },
+      {
+        "from": [
+          "Haddington Sinclair    ",
+          "Sinclair Haddington    "
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "Haddington"
+      },
+      {
+        "from": [
+          "London Hull    ",
+          "Hull London    "
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "London  "
+      },
+      {
+        "from": [
+          "London Birmingham    ",
+          "Birmingham London    "
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "London Birmingham    "
+      },
+      {
+        "from": [
+          "London Newsagents’    ",
+          "London Newsagents'    "
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "London"
+      },
+      {
+        "from": [
+          "Buenos Aires    ",
+          "Buenos Airês    "
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "Buenos-Aires    "
+      },
+      {
+        "from": [
+          "Calcutta     ",
+          "Calcutta Calcutta    "
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "Calcutta     "
+      },
+      {
+        "from": [
+          "London Seeley    ",
+          "Seeley London    "
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "London  "
+      },
+      {
+        "from": [
+          "London Brentano's    ",
+          "London Brentano’s    "
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "London"
+      },
+      {
+        "from": [
+          "London Daniel    ",
+          "Daniel London    "
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "London"
+      },
+      {
+        "from": [
+          "Ottawa     ",
+          "Ottawa Ottawa    "
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "Ottawa     "
+      },
+      {
+        "from": [
+          "London Shaw    ",
+          "Shaw London    "
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "London"
+      },
+      {
+        "from": [
+          "London Privately    ",
+          "Privately London    "
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "London"
+      },
+      {
+        "from": [
+          "Montréal     ",
+          "Montreal     "
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "Montréal     "
+      },
+      {
+        "from": [
+          "Orléans     ",
+          "Orleans     "
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "Orléans     "
+      },
+      {
+        "from": [
+          "Paris Moulins    ",
+          "Moulins Paris    "
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "Paris "
+      },
+      {
+        "from": [
+          "London Suttaby    ",
+          "Suttaby London    "
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "London    "
+      },
+      {
+        "from": [
+          "London For    ",
+          "For London    "
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "London  "
+      },
+      {
+        "from": [
+          "Leipzig Altenburg    ",
+          "Léipzig Altenburg    "
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "Leipzig"
+      },
+      {
+        "from": [
+          "London Addison    ",
+          "Addison London    "
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "London"
+      },
+      {
+        "from": [
+          "London Kearsly    ",
+          "Kearsly London    "
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "London"
+      },
+      {
+        "from": [
+          "Dover London    ",
+          "London Dover    "
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "London    "
+      },
+      {
+        "from": [
+          "Petersburg     ",
+          "Pétersburg     "
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "Petersburg     "
+      },
+      {
+        "from": [
+          "Oxford Blackwell    ",
+          "Blackwell Oxford    "
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "Oxford"
+      },
+      {
+        "from": [
+          "Firenze     ",
+          "Fïrenze     "
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "Firenze     "
+      },
+      {
+        "from": [
+          "Kjöbenhavn     ",
+          "Kjobenhavn     "
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "Kjöbenhavn     "
+      },
+      {
+        "from": [
+          "Milwaukee     ",
+          "Milwaukee Milwaukee    "
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "Milwaukee     "
+      },
+      {
+        "from": [
+          "Périgueux     ",
+          "Perigueux     "
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "Périgueux     "
+      },
+      {
+        "from": [
+          "London Hurst  Edinburgh  ",
+          "Edinburgh Hurst  London  "
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "London Edinburgh  "
+      },
+      {
+        "from": [
+          "Cincinnati Clarke    ",
+          "Clarke Cincinnati    "
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "Cincinnati    "
+      },
+      {
+        "from": [
+          "London Remington    ",
+          "Remington London    "
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "London    "
+      },
+      {
+        "from": [
+          "London Montreal    ",
+          "London Montréal    "
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "London Montreal    "
+      },
+      {
+        "from": [
+          "Newcastle     ",
+          "Newcastle Newcastle    "
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "Newcastle     "
+      },
+      {
+        "from": [
+          "London Glasgow    ",
+          "Glasgow London    "
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "London Glasgow    "
+      },
+      {
+        "from": [
+          "Hayes London    ",
+          "London Hayes    "
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "London    "
+      },
+      {
+        "from": [
+          "Yokohama “Japan    ",
+          "Yokohama Japan    "
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "Yokohama"
+      },
+      {
+        "from": [
+          "Calcutta Thacker    ",
+          "Thacker Calcutta    "
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "Calcutta    "
+      },
+      {
+        "from": [
+          "George Routledge  London  ",
+          "George Routledge    London"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "London  "
+      },
+      {
+        "from": [
+          "Épinal     ",
+          "Epinal     "
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "Épinal     "
+      },
+      {
+        "from": [
+          "London Parris    ",
+          "Parris London    "
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "London"
+      },
+      {
+        "from": [
+          "London Debrett    ",
+          "Debrett London    "
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "London"
+      },
+      {
+        "from": [
+          "Köln     ",
+          "Köln /    "
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "Köln     "
+      },
+      {
+        "from": [
+          "London Willoughby    ",
+          "Willoughby London    "
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "London"
+      },
+      {
+        "from": [
+          "Glasgow Hodge    ",
+          "Hodge Glasgow    "
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "Glasgow    "
+      },
+      {
+        "from": [
+          "London Redway    ",
+          "Redway London    "
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "London    "
+      },
+      {
+        "from": [
+          "Ward Lock London   ",
+          "Ward Lock  London  "
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "London   "
+      },
+      {
+        "from": [
+          "Vidni     ",
+          "Vídni     "
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "Vidni     "
+      },
+      {
+        "from": [
+          "London Dent    ",
+          "Dent London    "
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "London    "
+      },
+      {
+        "from": [
+          "London Hogg    ",
+          "Hogg London    "
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "London    "
+      },
+      {
+        "from": [
+          "Brunswick     ",
+          "Brunswick ́    "
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "Brunswick     "
+      },
+      {
+        "from": [
+          "Edinburgh Constable    ",
+          "Constable Edinburgh    "
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "Edinburgh    "
+      },
+      {
+        "from": [
+          "Richard Bentley  London  ",
+          "Richard Bentley London   "
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "London  "
+      },
+      {
+        "from": [
+          "London Duckworth    ",
+          "Duckworth London    "
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "London    "
+      },
+      {
+        "from": [
+          "London Partridge    ",
+          "Partridge London    "
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "London    "
+      },
+      {
+        "from": [
+          "Singapore Straits    ",
+          "Singapore “Straits    "
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "Singapore    "
+      },
+      {
+        "from": [
+          "New-York Chicago    ",
+          "Chicago New-York    "
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "New-York Chicago    "
+      },
+      {
+        "from": [
+          "Manchester Heywood    ",
+          "Heywood Manchester    "
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "Manchester    "
+      },
+      {
+        "from": [
+          "New-Haven     ",
+          "Newhaven     "
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "New-Haven     "
+      },
+      {
+        "from": [
+          "Edinburgh Glasgow    ",
+          "Glasgow Edinburgh    "
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "Edinburgh Glasgow    "
+      },
+      {
+        "from": [
+          "Merida     ",
+          "Mérida     "
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "Merida     "
+      },
+      {
+        "from": [
+          "London Fox    ",
+          "Fox London    "
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "London    "
+      },
+      {
+        "from": [
+          "Edinburgh Chambers London   ",
+          "London Chambers Edinburgh   "
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "Edinburgh London   "
+      },
+      {
+        "from": [
+          "Alden Oxford    ",
+          "Oxford Alden    "
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "Oxford    "
+      },
+      {
+        "from": [
+          "London Downey    ",
+          "Downey London    "
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "London    "
+      },
+      {
+        "from": [
+          "London Macqueen    ",
+          "Macqueen London    "
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "London    "
+      },
+      {
+        "from": [
+          "Edinburgh Livingstone    ",
+          "Livingstone Edinburgh    "
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "Edinburgh Livingstone    "
+      },
+      {
+        "from": [
+          "London Owen    ",
+          "Owen London    "
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "London    "
+      },
+      {
+        "from": [
+          "Lancaster Milner    ",
+          "Milner Lancaster    "
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "Lancaster    "
+      },
+      {
+        "from": [
+          "Alnwick     ",
+          "Alnwick “Alnwick    "
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "Alnwick     "
+      },
+      {
+        "from": [
+          "London Diprose    ",
+          "London Diprose London   "
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "London"
+      },
+      {
+        "from": [
+          "London Heinemann    ",
+          "Heinemann London    "
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "London    "
+      },
+      {
+        "from": [
+          "Bordeaux Paris    ",
+          "Paris Bordeaux    "
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "Bordeaux Paris    "
+      },
+      {
+        "from": [
+          "London Wenman    ",
+          "Wenman London    "
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "London    "
+      },
+      {
+        "from": [
+          "Oxford Parker    ",
+          "Parker Oxford    "
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "Oxford    "
+      },
+      {
+        "from": [
+          "Hull Wilson    ",
+          "Wilson Hull    "
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": ""
+      },
+      {
+        "from": [
+          "Lewes Sussex    ",
+          "Lewes “Sussex    "
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "Lewes Sussex    "
+      },
+      {
+        "from": [
+          "London Wilson    ",
+          "Wilson London    "
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "London    "
+      },
+      {
+        "from": [
+          "Paris Limoges    ",
+          "Limoges Paris    "
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "Paris Limoges    "
+      },
+      {
+        "from": [
+          "London National    ",
+          "London “National    "
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "London    "
+      },
+      {
+        "from": [
+          "Shrewsbury Eddowes    ",
+          "Shrewsbury Eddowe's    "
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "Shrewsbury    "
+      },
+      {
+        "from": [
+          "London Longmans New-York   ",
+          "New-York Longmans London   "
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "London New-York   "
+      },
+      {
+        "from": [
+          "London Mathews    ",
+          "Mathews London    "
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "London    "
+      },
+      {
+        "from": [
+          "Québec Coté    ",
+          "Quebec Coté    "
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "Québec    "
+      },
+      {
+        "from": [
+          "London Long    ",
+          "Long London    "
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "London"
+      },
+      {
+        "from": [
+          "London Nutt    ",
+          "Nutt London    "
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "London    "
+      },
+      {
+        "from": [
+          "Wiesbaden Darmstadt    ",
+          "Darmstadt Wiesbaden    "
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "Wiesbaden Darmstadt    "
+      },
+      {
+        "from": [
+          "London Hindmarsh    ",
+          "Hindmarsh London    "
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "London    "
+      },
+      {
+        "from": [
+          "London Fisher    ",
+          "London Fisher  London  "
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "London    "
+      },
+      {
+        "from": [
+          "Mans Paris    ",
+          "Paris Mans    "
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "Mans Paris    "
+      },
+      {
+        "from": [
+          "Inverness Northern    ",
+          "Inverness “Northern    "
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "Inverness    "
+      },
+      {
+        "from": [
+          "Dublin Wiseheart    ",
+          "Wiseheart Dublin    "
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "Dublin    "
+      },
+      {
+        "from": [
+          "London Nisbet    ",
+          "Nisbet London    "
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "London    "
+      },
+      {
+        "from": [
+          "Chicago Philadelphia    ",
+          "Philadelphia Chicago    "
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "Chicago Philadelphia    "
+      },
+      {
+        "from": [
+          "Paris Clermont    ",
+          "Clermont Paris    "
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "Paris Clermont    "
+      },
+      {
+        "from": [
+          "William Blackwood  Edinburgh London ",
+          "William Blackwood  London Edinburgh "
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "Edinburgh London "
+      },
+      {
+        "from": [
+          "Edinburgh     ",
+          "Edinburgh Edinburgh    "
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "Edinburgh     "
+      },
+      {
+        "from": [
+          "Albans Gibbs    ",
+          "Alban's Gibbs    "
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "Albans Gibbs    "
+      },
+      {
+        "from": [
+          "Belfast     ",
+          "Belfast “Belfast    "
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "Belfast     "
+      },
+      {
+        "from": [
+          "London Dublin    ",
+          "Dublin London    "
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "London Dublin    "
+      },
+      {
+        "from": [
+          "Chilworth London    ",
+          "London Chilworth    "
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "London    "
+      },
+      {
+        "from": [
+          "London Gardner    ",
+          "Gardner London    "
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "London    "
+      },
+      {
+        "from": [
+          "Prag Wien    ",
+          "Wien Prag    "
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "Prag Wien    "
+      },
+      {
+        "from": [
+          "Évreux     ",
+          "Evreux     "
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "Évreux     "
+      },
+      {
+        "from": [
+          "México     ",
+          "Mexico     "
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "México     "
+      },
+      {
+        "from": [
+          "Plymouth Privately    ",
+          "Privately Plymouth    "
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "Plymouth    "
+      },
+      {
+        "from": [
+          "Edinburgh Hunter    ",
+          "Hunter Edinburgh    "
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "Edinburgh    "
+      },
+      {
+        "from": [
+          "Madrid Paris    ",
+          "Madrid París    "
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "Madrid Paris    "
+      },
+      {
+        "from": [
+          "London Hughes    ",
+          "Hughes London    "
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "London    "
+      },
+      {
+        "from": [
+          "London Smithers    ",
+          "Smithers London    "
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "London    "
+      },
+      {
+        "from": [
+          "Macon     ",
+          "Mâcon     "
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "Macon"
+      },
+      {
+        "from": [
+          "Rugby Over    ",
+          "Over Rugby    "
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "Rugby Over    "
+      },
+      {
+        "from": [
+          "Philadelphia Wardle    ",
+          "Wardle Philadelphia    "
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "Philadelphia"
+      },
+      {
+        "from": [
+          "Johnstone London    ",
+          "London Johnstone    "
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "London    "
+      },
+      {
+        "from": [
+          "London Mining    ",
+          "London “Mining    "
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "London    "
+      },
+      {
+        "from": [
+          "London Symonds    ",
+          "Symonds London    "
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "London    "
+      },
+      {
+        "from": [
+          "Shanghai     ",
+          "Shanghai “Shanghai    "
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "Shanghai     "
+      },
+      {
+        "from": [
+          "New-York The    ",
+          "New-York “The    "
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "New-York    "
+      },
+      {
+        "from": [
+          "Leipsic London    ",
+          "London Leipsic    "
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "London    "
+      },
+      {
+        "from": [
+          "London Cooper    ",
+          "Cooper London    "
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "London    "
+      },
+      {
+        "from": [
+          "Hongkong 'China    ",
+          "Hongkong “China    "
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "Hongkong   "
+      },
+      {
+        "from": [
+          "London Bath    ",
+          "Bath London    "
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "London    "
+      },
+      {
+        "from": [
+          "Baden     ",
+          "Baden Baden    "
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "Baden     "
+      },
+      {
+        "from": [
+          "Czernowitz     ",
+          "Czérnowitz     "
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "Czernowitz     "
+      },
+      {
+        "from": [
+          "Nördlingen     ",
+          "Nordlingen     "
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "Nördlingen     "
+      },
+      {
+        "from": [
+          "London Sonnenschein    ",
+          "Sonnenschein London    "
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "London    "
+      },
+      {
+        "from": [
+          "Ἀθηνησι     ",
+          "Ἀθηνῃσι     "
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "Ἀθηνησι     "
+      },
+      {
+        "from": [
+          "London Strahan    ",
+          "Strahan London    "
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "London    "
+      },
+      {
+        "from": [
+          "Calcutta Thacker  London  ",
+          "Calcutta Thacker London   "
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "Calcutta London  "
+      },
+      {
+        "from": [
+          "Paris Rouen    ",
+          "Rouen Paris    "
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "Paris Rouen    "
+      },
+      {
+        "from": [
+          "Hartford     ",
+          "Hartford Hartford    "
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "Hartford     "
+      },
+      {
+        "from": [
+          "Edgar Hawick    ",
+          "Hawick Edgar    "
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "Edgar Hawick    "
+      },
+      {
+        "from": [
+          "New-York Appleton    ",
+          "Appleton New-York    "
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "New-York    "
+      },
+      {
+        "from": [
+          "London Woolmer    ",
+          "Woolmer London    "
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "London    "
+      },
+      {
+        "from": [
+          "London Beeton    ",
+          "Beeton London    "
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "London    "
+      },
+      {
+        "from": [
+          "Stockwell London    ",
+          "London Stockwell    "
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "London    "
+      },
+      {
+        "from": [
+          "London Art    ",
+          "London “Art    "
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "London    "
+      },
+      {
+        "from": [
+          "Angers Paris    ",
+          "Paris Angers    "
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "Angers Paris    "
+      },
+      {
+        "from": [
+          "Lincoln London    ",
+          "London Lincoln    "
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "London    "
+      },
+      {
+        "from": [
+          "Edinburgh Oliphant    ",
+          "Oliphant Edinburgh    "
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "Edinburgh    "
+      },
+      {
+        "from": [
+          "Calcutta London    ",
+          "London Calcutta    "
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "Calcutta London    "
+      },
+      {
+        "from": [
+          "Carnan London    ",
+          "London Carnan    "
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "London    "
+      },
+      {
+        "from": [
+          "Chicago     ",
+          "Chicago Chicago    "
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "Chicago     "
+      },
+      {
+        "from": [
+          "London Rivingtons    ",
+          "Rivingtons London    "
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "London    "
+      },
+      {
+        "from": [
+          "Königsberg     ",
+          "Königsberg̈     "
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "Königsberg     "
+      },
+      {
+        "from": [
+          "Città Castello    ",
+          "Citta Castello    "
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "Castello    "
+      },
+      {
+        "from": [
+          "New-York Century    ",
+          "Century New-York    "
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "New-York    "
+      },
+      {
+        "from": [
+          "London Allenson    ",
+          "Allenson London    "
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "London    "
+      },
+      {
+        "from": [
+          "ἐν Ἀθηναις    ",
+          "Ἐν Ἀθηναις    "
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "ἐν-Ἀθηναις    "
+      },
+      {
+        "from": [
+          "Nister London    ",
+          "London Nister    "
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "London    "
+      },
+      {
+        "from": [
+          "London Published    ",
+          "London Published London   "
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "London    "
+      },
+      {
+        "from": [
+          "London Allen    ",
+          "Allen London    "
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "London    "
+      },
+      {
+        "from": [
+          "Newcastle Tyne   London ",
+          "Newcastle Tyne London   "
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "Newcastle London "
+      },
+      {
+        "from": [
+          "Ἐν Ἑρμουπολει    ",
+          "ἐν Ἑρμουπολει    "
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "Ἐν-Ἑρμουπολει    "
+      },
+      {
+        "from": [
+          "Pragae     ",
+          "Pragæ     "
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "Pragae     "
+      },
+      {
+        "from": [
+          "Dennis Scarborough    ",
+          "Scarborough Dennis    "
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "Scarborough    "
+      },
+      {
+        "from": [
+          "London Longmans    ",
+          "Longmans London    "
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "London"
+      },
+      {
+        "from": [
+          "Düsseldorf     ",
+          "Dusseldorf     "
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "Düsseldorf     "
+      },
+      {
+        "from": [
+          "Paris Sceaux    ",
+          "Sceaux Paris    "
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "Paris    "
+      },
+      {
+        "from": [
+          "Londres     ",
+          "Londres ̀    "
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "London  "
+      },
+      {
+        "from": [
+          "Angoulême     ",
+          "Angoulème     "
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "Angoulême     "
+      },
+      {
+        "from": [
+          "London Paris    ",
+          "Paris London    "
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "London Paris    "
+      },
+      {
+        "from": [
+          "London York    ",
+          "York London    "
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "London York    "
+      },
+      {
+        "from": [
+          "Edinburgh Nimmo    ",
+          "Nimmo Edinburgh    "
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "Edinburgh"
+      },
+      {
+        "from": [
+          "Paris Bruxelles    ",
+          "Bruxelles Paris    "
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "Paris Bruxelles    "
+      },
+      {
+        "from": [
+          "Havre     ",
+          "Hâvre     "
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "Havre"
+      },
+      {
+        "from": [
+          "Colombo Ceylon    ",
+          "Colombo “Ceylon    "
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "Colombo    "
+      },
+      {
+        "from": [
+          "Oxford London    ",
+          "London Oxford    "
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "Oxford London    "
+      },
+      {
+        "from": [
+          "London Trübner    ",
+          "Trübner London    "
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "London    "
+      },
+      {
+        "from": [
+          "London Greening    ",
+          "Greening London    "
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "London    "
+      },
+      {
+        "from": [
+          "Cincinnati New-York    ",
+          "New-York Cincinnati    "
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "Cincinnati New-York    "
+      },
+      {
+        "from": [
+          "Penzance Rodda    ",
+          "Rodda Penzance    "
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "Penzance    "
+      },
+      {
+        "from": [
+          "Ipswich     ",
+          "Ipswich *    "
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "Ipswich     "
+      },
+      {
+        "from": [
+          "London Herringman    ",
+          "Herringman London    "
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "London    "
+      },
+      {
+        "from": [
+          "Leipzig Berlin    ",
+          "Berlin Leipzig    "
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "Leipzig Berlin    "
+      },
+      {
+        "from": [
+          "New-York George   London ",
+          "New-York George  London  "
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "New-York London "
+      },
+      {
+        "from": [
+          "Paris Baudry's    ",
+          "Paris Baudry’s    "
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "Paris    "
+      },
+      {
+        "from": [
+          "London Tinsley    ",
+          "Tinsley London    "
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "London    "
+      },
+      {
+        "from": [
+          "London Bristol    ",
+          "Bristol London    "
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "London Bristol    "
+      },
+      {
+        "from": [
+          "London Maxwell    ",
+          "Maxwell London    "
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "London    "
+      },
+      {
+        "from": [
+          "Perth     ",
+          "Perth Perth    "
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "Perth     "
+      },
+      {
+        "from": [
+          "London Black    ",
+          "Black London    "
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "London    "
+      },
+      {
+        "from": [
+          "London Innes    ",
+          "Innes London    "
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "London    "
+      },
+      {
+        "from": [
+          "Edward Moxon London   ",
+          "Edward Moxon  London  "
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "London   "
+      },
+      {
+        "from": [
+          "Nantes Paris    ",
+          "Paris Nantes    "
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "Nantes Paris    "
+      },
+      {
+        "from": [
+          "Cambridge     ",
+          "Cambridge Cambridge    "
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "Cambridge     "
+      },
+      {
+        "from": [
+          "Edinburgh London   New-York ",
+          "London Edinburgh New-York   "
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "Edinburgh London"
+      },
+      {
+        "from": [
+          "Liége     ",
+          "Liège     "
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "Liége     "
+      },
+      {
+        "from": [
+          "Philadelphia Lippincott    ",
+          "Lippincott Philadelphia    "
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "Philadelphia    "
+      },
+      {
+        "from": [
+          "Boston London    ",
+          "London Boston    "
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "Boston London    "
+      },
+      {
+        "from": [
+          "Goetzel Mobile    ",
+          "Mobile Goetzel    "
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "Goetzel"
+      },
+      {
+        "from": [
+          "Paris Tours    ",
+          "Tours Paris    "
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "Paris Tours    "
+      },
+      {
+        "from": [
+          "Mondovi     ",
+          "Mondovì     "
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "Mondovi"
+      },
+      {
+        "from": [
+          "Bristol Arrowsmith    ",
+          "Arrowsmith Bristol    "
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "Bristol    "
+      },
+      {
+        "from": [
+          "Carácas     ",
+          "Caracas     "
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "Carácas     "
+      },
+      {
+        "from": [
+          "London Ellis    ",
+          "Ellis London    "
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "London    "
+      },
+      {
+        "from": [
+          "Hull Leeds    ",
+          "Leeds Hull    "
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "Leeds    "
+      },
+      {
+        "from": [
+          "Elkin Mathews London   ",
+          "Elkin Mathews   London "
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "London   "
+      },
+      {
+        "from": [
+          "Edinburgh Privately    ",
+          "Privately Edinburgh    "
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "Edinburgh    "
+      },
+      {
+        "from": [
+          "Paris Lyon    ",
+          "Lyon Paris    "
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "Paris Lyon    "
+      },
+      {
+        "from": [
+          "Bern Zürich    ",
+          "Zurich Bern    "
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "Bern Zürich    "
+      },
+      {
+        "from": [
+          "Hawick Morrison    ",
+          "Morrison Hawick    "
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "Hawick Morrison    "
+      },
+      {
+        "from": [
+          "Brighton     ",
+          "Brighton “Brighton    "
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "Brighton     "
+      },
+      {
+        "from": [
+          "Glasgow Menzies    ",
+          "Menzies Glasgow    "
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "Glasgow    "
+      },
+      {
+        "from": [
+          "New-York Putnam's    ",
+          "New-York Putnam’s    "
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "New-York    "
+      },
+      {
+        "from": [
+          "Dover     ",
+          "Dover “Dover    "
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "Dover     "
+      },
+      {
+        "from": [
+          "Swan Sonnenschein London   ",
+          "Swan Sonnenschein  London  "
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "London   "
+      },
+      {
+        "from": [
+          "Belin Paris    ",
+          "Paris Belin    "
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "Belin Paris    "
+      },
+      {
+        "from": [
+          "London Norwich    ",
+          "Norwich London    "
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "London Norwich    "
+      },
+      {
+        "from": [
+          "Madras     ",
+          "Madras “Madras    "
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "Madras     "
+      },
+      {
+        "from": [
+          "Edinburgh Elliot    ",
+          "Elliot Edinburgh    "
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "Edinburgh    "
+      },
+      {
+        "from": [
+          "London Herbert    ",
+          "Herbert London    "
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "London    "
+      },
+      {
+        "from": [
+          "London Stanford    ",
+          "Stanford London    "
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "London Stanford    "
+      },
+      {
+        "from": [
+          "Hawick Kennedy    ",
+          "Kennedy Hawick    "
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "Hawick Kennedy    "
+      },
+      {
+        "from": [
+          "Macmillan London Edinburgh   ",
+          "London Macmillan Edinburgh   "
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "London Edinburgh   "
+      },
+      {
+        "from": [
+          "Southampton     ",
+          "Southampton Southampton    "
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "Southampton     "
+      },
+      {
+        "from": [
+          "Melbourne Victorian    ",
+          "Melbourne “Victorian    "
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "Melbourne    "
+      },
+      {
+        "from": [
+          "Edinburgh Douglas    ",
+          "Douglas Edinburgh    "
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "Edinburgh    "
+      },
+      {
+        "from": [
+          "Paris Evreux    ",
+          "Paris Évreux    "
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "Paris Evreux    "
+      },
+      {
+        "from": [
+          "Brussel Leipzig    ",
+          "Brüssel Leipzig    "
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "Brussel Leipzig    "
+      },
+      {
+        "from": [
+          "Belfast M'Caw    ",
+          "Belfast M’Caw    "
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "Belfast    "
+      },
+      {
+        "from": [
+          "Ottawa MacLean    ",
+          "Ottawa Maclean    "
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "Ottawa    "
+      },
+      {
+        "from": [
+          "Longman Hurst    London",
+          "Longman Hurst   London "
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "London"
+      },
+      {
+        "from": [
+          "London Moxon    ",
+          "Moxon London    "
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "London    "
+      },
+      {
+        "from": [
+          "London Watts    ",
+          "Watts London    "
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "London    "
+      },
+      {
+        "from": [
+          "London Wilkins    ",
+          "Wilkins London    "
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "London"
+      },
+      {
+        "from": [
+          "London Frowde    ",
+          "Frowde London    "
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "London    "
+      },
+      {
+        "from": [
+          "Florentiae     ",
+          "Florentiæ     "
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "Florentiae     "
+      },
+      {
+        "from": [
+          "Simpkin Marshall London   ",
+          "Simpkin Marshall   London "
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "London   "
+      },
+      {
+        "from": [
+          "Paris Galignani    ",
+          "Galignani Paris    "
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "Paris Galignani    "
+      },
+      {
+        "from": [
+          "München Leipzig    ",
+          "Leipzig München    "
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "München Leipzig    "
+      },
+      {
+        "from": [
+          "London Burleigh    ",
+          "Burleigh London    "
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "London    "
+      },
+      {
+        "from": [
+          "Crane Topeka    ",
+          "Topeka Crane    "
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "Crane-Topeka    "
+      },
+      {
+        "from": [
+          "London The    ",
+          "London “The    "
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "London    "
+      },
+      {
+        "from": [
+          "Vratislaviae     ",
+          "Vratislaviæ     "
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "Vratislaviae     "
+      },
+      {
+        "from": [
+          "Paisley London    ",
+          "London Paisley    "
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "London    "
+      },
+      {
+        "from": [
+          "Boston Heath    ",
+          "Heath Boston    "
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "Boston    "
+      },
+      {
+        "from": [
+          "Zürich     ",
+          "Zurich     "
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "Zürich     "
+      },
+      {
+        "from": [
+          "London Longmans  Dublin  ",
+          "Dublin Longmans  London  "
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "London Dublin  "
+      },
+      {
+        "from": [
+          "Lipsiae     ",
+          "Lipsiæ     "
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "Lipsiae     "
+      },
+      {
+        "from": [
+          "London Manchester    ",
+          "Manchester London    "
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "London Manchester    "
+      },
+      {
+        "from": [
+          "New-York Scribner's    ",
+          "New-York Scribner’s    "
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "New-York    "
+      },
+      {
+        "from": [
+          "Reykjavik     ",
+          "Reykjavík     "
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "Reykjavik     "
+      },
+      {
+        "from": [
+          "Routledge Sons London   ",
+          "Routledge Sons   London "
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "London   "
+      },
+      {
+        "from": [
+          "London Unwin    ",
+          "Unwin London    "
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "London    "
+      },
+      {
+        "from": [
+          "Hull The    ",
+          "Hull “The    "
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "Hull    "
+      },
+      {
+        "from": [
+          "Edinburgh Waugh    ",
+          "Edinburgh Waugh  Edinburgh  "
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "Edinburgh    "
+      },
+      {
+        "from": [
+          "Agen Paris    ",
+          "Paris Agen    "
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "Agen Paris    "
+      },
+      {
+        "from": [
+          "Edinburgh Geddes    ",
+          "Geddes Edinburgh    "
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "Edinburgh    "
+      },
+      {
+        "from": [
+          "Chatham Rochester    ",
+          "Rochester Chatham    "
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "Rochester    "
+      },
+      {
+        "from": [
+          "London Harrison    ",
+          "Harrison London    "
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "London    "
+      },
+      {
+        "from": [
+          "Toronto Briggs    ",
+          "Briggs Toronto    "
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "Toronto    "
+      },
+      {
+        "from": [
+          "London Jennings    ",
+          "Jennings London    "
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "London    "
+      },
+      {
+        "from": [
+          "Birmingham     ",
+          "Birmingham “Birmingham    "
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "Birmingham     "
+      },
+      {
+        "from": [
+          "London Whiting    ",
+          "Whiting London    "
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "London    "
+      },
+      {
+        "from": [
+          "Boston New-York    ",
+          "New-York Boston    "
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "Boston New-York    "
+      },
+      {
+        "from": [
+          "Leeds Yorkshire    ",
+          "Leeds “Yorkshire    "
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "Leeds    "
+      },
+      {
+        "from": [
+          "Alexander Gardner  London  ",
+          "Alexander Gardner London   "
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "London  "
+      },
+      {
+        "from": [
+          "Budæ     ",
+          "Budae     "
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "Budæ     "
+      },
+      {
+        "from": [
+          "Wien Olmütz    ",
+          "Wien Olmutz    "
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "Wien Olmütz    "
+      },
+      {
+        "from": [
+          "London Scribner   New-York ",
+          "London Scribner  New-York  "
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "London New-York "
+      },
+      {
+        "from": [
+          "Genève Paris    ",
+          "Paris Genève    "
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "Genève Paris    "
+      },
+      {
+        "from": [
+          "Méjico     ",
+          "Mejico     "
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "Méjico     "
+      },
+      {
+        "from": [
+          "Westminster Constable    ",
+          "Constable Westminster    "
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "Westminster    "
+      },
+      {
+        "from": [
+          "London Philadelphia    ",
+          "Philadelphia London    "
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "London Philadelphia    "
+      },
+      {
+        "from": [
+          "Griffith Farran London   ",
+          "Griffith Farran   London "
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "London   "
+      },
+      {
+        "from": [
+          "Wien Pest Leipzig   ",
+          "Pest Wien Leipzig   "
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "Wien Pest   "
+      },
+      {
+        "from": [
+          "Manchester     ",
+          "Manchester Manchester    "
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "Manchester     "
+      },
+      {
+        "from": [
+          "Bristol Mirror    ",
+          "Bristol “Mirror”    "
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "Bristol    "
+      },
+      {
+        "from": [
+          "London Millar    ",
+          "Millar London    "
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "London    "
+      },
+      {
+        "from": [
+          "London Wilkie    ",
+          "Wilkie London    "
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "London    "
+      },
+      {
+        "from": [
+          "London Miller    ",
+          "Miller London    "
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "London    "
+      },
+      {
+        "from": [
+          "London Dodsley    ",
+          "Dodsley London    "
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "London    "
+      },
+      {
+        "from": [
+          "London Leipzig    ",
+          "Leipzig London    "
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "London Leipzig    "
+      },
+      {
+        "from": [
+          "London Church    ",
+          "London “Church    "
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "London    "
+      },
+      {
+        "from": [
+          "Dublin Duffy    ",
+          "Duffy Dublin    "
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "Dublin    "
+      },
+      {
+        "from": [
+          "London Newbery    ",
+          "Newbery London    "
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "London Newbery    "
+      },
+      {
+        "from": [
+          "Cashel Gazette    ",
+          "Cashel “Gazette    "
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "Cashel"
+      },
+      {
+        "from": [
+          "London Andrews    ",
+          "Andrews London    "
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "London    "
+      },
+      {
+        "from": [
+          "London Collins    ",
+          "Collins London    "
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "London    "
+      },
+      {
+        "from": [
+          "London Macmillan Cambridge   ",
+          "Macmillan London Cambridge   "
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "London Cambridge   "
+      },
+      {
+        "from": [
+          "Edinburgh Johnston    ",
+          "Johnston Edinburgh    "
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "Edinburgh    "
+      },
+      {
+        "from": [
+          "Cambridge Bell  London  ",
+          "London Bell  Cambridge  "
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "Cambridge London  "
+      },
+      {
+        "from": [
+          "London Newby    ",
+          "Newby London    "
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "London    "
+      },
+      {
+        "from": [
+          "London Arnold    ",
+          "Arnold London    "
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "London"
+      },
+      {
+        "from": [
+          "London Sherborne    ",
+          "Sherborne London    "
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "London    "
+      },
+      {
+        "from": [
+          "London White    ",
+          "White London    "
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "London    "
+      },
+      {
+        "from": [
+          "Edinburgh Thin    ",
+          "Thin Edinburgh    "
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "Edinburgh    "
+      },
+      {
+        "from": [
+          "London Masters    ",
+          "Masters London    "
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "London    "
+      },
+      {
+        "from": [
+          "Leipzig Heidelberg    ",
+          "Heidelberg Leipzig    "
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "Leipzig    "
+      },
+      {
+        "from": [
+          "Upsaliæ     ",
+          "Upsaliae     "
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "Upsaliæ     "
+      },
+      {
+        "from": [
+          "Nimes     ",
+          "Nîmes     "
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "Nimes     "
+      },
+      {
+        "from": [
+          "London Rue    ",
+          "Rue London    "
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "London    "
+      },
+      {
+        "from": [
+          "Jersey     ",
+          "Jersey Jersey    "
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "Jersey     "
+      },
+      {
+        "from": [
+          "Hargrove York    ",
+          "York Hargrove    "
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "York    "
+      },
+      {
+        "from": [
+          "Cork Purcell    ",
+          "Purcell Cork    "
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "Cork    "
+      },
+      {
+        "from": [
+          "Leamington Warwick    ",
+          "Warwick Leamington    "
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "Leamington Warwick    "
+      },
+      {
+        "from": [
+          "Blackpool Fleetwood    ",
+          "Fleetwood Blackpool    "
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "Blackpool Fleetwood    "
+      },
+      {
+        "from": [
+          "Melbourne Robertson    ",
+          "Robertson Melbourne    "
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "Melbourne    "
+      },
+      {
+        "from": [
+          "Canto London    ",
+          "London Canto    "
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "London    "
+      },
+      {
+        "from": [
+          "Hereford     ",
+          "Hereford “Hereford    "
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "Hereford     "
+      },
+      {
+        "from": [
+          "Paisley Parlane    ",
+          "Parlane Paisley    "
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "Paisley Parlane    "
+      },
+      {
+        "from": [
+          "Edinburgh Manchester    ",
+          "Manchester Edinburgh    "
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "Edinburgh Manchester    "
+      },
+      {
+        "from": [
+          "London Richmond    ",
+          "Richmond London    "
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "London    "
+      },
+      {
+        "from": [
+          "London Rich Wellington   ",
+          "Rich Wellington London   "
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "London   "
+      },
+      {
+        "from": [
+          "London Sands    ",
+          "Sands London    "
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "London    "
+      },
+      {
+        "from": [
+          "Tenby     ",
+          "Tenby Tenby    "
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "Tenby     "
+      },
+      {
+        "from": [
+          "Châteaudun     ",
+          "Chateaudun     "
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "Châteaudun     "
+      }
+    ],
+    "description": "Modification en masse des cellules de la colonne Location_col_merged"
+  },
+  {
+    "op": "core/mass-edit",
+    "engineConfig": {
+      "facets": [],
+      "mode": "row-based"
+    },
+    "columnName": "Location_col_merged",
+    "expression": "value",
+    "edits": [
+      {
+        "from": [
+          "Edinburgh London    ",
+          "Edinburgh London ",
+          "Edinburgh London  ",
+          "Edinburgh London",
+          "London Edinburgh  ",
+          "London Edinburgh   ",
+          "Edinburgh London   "
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "Edinburgh London    "
+      },
+      {
+        "from": [
+          "London     ",
+          "London",
+          "London    ",
+          "London  ",
+          "London ",
+          "London   "
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "London     "
+      },
+      {
+        "from": [
+          "Edinburgh     ",
+          "Edinburgh    ",
+          "Edinburgh ",
+          "Edinburgh",
+          "Edinburgh   "
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "Edinburgh     "
+      },
+      {
+        "from": [
+          "London New-York    ",
+          "London New-York   ",
+          "New-York London ",
+          "London New-York "
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "London New-York    "
+      },
+      {
+        "from": [
+          "Dublin     ",
+          "Dublin    ",
+          "Dublin",
+          "Dublin  "
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "Dublin     "
+      },
+      {
+        "from": [
+          "London Cambridge    ",
+          "Cambridge London  ",
+          "London Cambridge   "
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "London Cambridge    "
+      },
+      {
+        "from": [
+          "Boston     ",
+          "Boston   ",
+          "Boston    "
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "Boston     "
+      },
+      {
+        "from": [
+          "Calcutta     ",
+          "Calcutta    ",
+          "Calcutta "
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "Calcutta     "
+      },
+      {
+        "from": [
+          "Leipzig     ",
+          "Leipzig    ",
+          "Leipzig"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "Leipzig     "
+      },
+      {
+        "from": [
+          "Paris     ",
+          "Paris    ",
+          "Paris "
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "Paris     "
+      },
+      {
+        "from": [
+          "Philadelphia     ",
+          "Philadelphia    ",
+          "Philadelphia"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "Philadelphia     "
+      },
+      {
+        "from": [
+          "Melbourne     ",
+          "Melbourne    ",
+          "Melbourne "
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "Melbourne     "
+      },
+      {
+        "from": [
+          "New-York     ",
+          "New-York    ",
+          "New-York"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "New-York     "
+      },
+      {
+        "from": [
+          "Oxford     ",
+          "Oxford    ",
+          "Oxford"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "Oxford     "
+      },
+      {
+        "from": [
+          "Glasgow     ",
+          "Glasgow",
+          "Glasgow    "
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "Glasgow     "
+      },
+      {
+        "from": [
+          "     ",
+          ""
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "     "
+      },
+      {
+        "from": [
+          "Québec     ",
+          "Québec    "
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "Québec     "
+      },
+      {
+        "from": [
+          "Singapore     ",
+          "Singapore    "
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "Singapore     "
+      },
+      {
+        "from": [
+          "Hull     ",
+          "Hull    "
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "Hull     "
+      },
+      {
+        "from": [
+          "Bombay     ",
+          "Bombay"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "Bombay     "
+      },
+      {
+        "from": [
+          "Wien Pest   ",
+          "Wien Pest    "
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "Wien Pest   "
+      },
+      {
+        "from": [
+          "Ottawa     ",
+          "Ottawa    "
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "Ottawa     "
+      },
+      {
+        "from": [
+          "London Newcastle    ",
+          "Newcastle London "
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "London Newcastle    "
+      },
+      {
+        "from": [
+          "Inverness    ",
+          "Inverness     "
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "Inverness    "
+      },
+      {
+        "from": [
+          "Merida",
+          "Merida     "
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "Merida"
+      },
+      {
+        "from": [
+          "Haddington",
+          "Haddington     "
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "Haddington"
+      },
+      {
+        "from": [
+          "Penzance    ",
+          "Penzance     "
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "Penzance    "
+      },
+      {
+        "from": [
+          "Plymouth    ",
+          "Plymouth     "
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "Plymouth    "
+      },
+      {
+        "from": [
+          "Bristol    ",
+          "Bristol     "
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "Bristol    "
+      },
+      {
+        "from": [
+          "Belfast     ",
+          "Belfast    "
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "Belfast     "
+      },
+      {
+        "from": [
+          "London Dublin    ",
+          "London Dublin  "
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "London Dublin    "
+      },
+      {
+        "from": [
+          "Westminster    ",
+          "Westminster     "
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "Westminster    "
+      },
+      {
+        "from": [
+          "Leeds     ",
+          "Leeds    "
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "Leeds     "
+      },
+      {
+        "from": [
+          "Toronto    ",
+          "Toronto     "
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "Toronto    "
+      },
+      {
+        "from": [
+          "Calcutta London    ",
+          "Calcutta London  "
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "Calcutta London    "
+      },
+      {
+        "from": [
+          "Hongkong   ",
+          "Hongkong     "
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "Hongkong   "
+      },
+      {
+        "from": [
+          "Yokohama",
+          "Yokohama     "
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "Yokohama"
+      },
+      {
+        "from": [
+          "Colombo    ",
+          "Colombo     "
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "Colombo    "
+      },
+      {
+        "from": [
+          "Rochester     ",
+          "Rochester    "
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "Rochester     "
+      },
+      {
+        "from": [
+          "Lancaster     ",
+          "Lancaster    "
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "Lancaster     "
+      },
+      {
+        "from": [
+          "Scarborough     ",
+          "Scarborough    "
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "Scarborough     "
+      },
+      {
+        "from": [
+          "Cork     ",
+          "Cork    "
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "Cork     "
+      },
+      {
+        "from": [
+          "York     ",
+          "York    "
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "York     "
+      },
+      {
+        "from": [
+          "Zürich     ",
+          "Zurich   "
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "Zürich     "
+      },
+      {
+        "from": [
+          "Manchester    ",
+          "Manchester     "
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "Manchester    "
+      },
+      {
+        "from": [
+          "Shrewsbury     ",
+          "Shrewsbury    "
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "Shrewsbury     "
+      },
+      {
+        "from": [
+          "Cincinnati     ",
+          "Cincinnati    "
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "Cincinnati     "
+      }
+    ],
+    "description": "Modification en masse des cellules de la colonne Location_col_merged"
+  },
+  {
+    "op": "core/mass-edit",
+    "engineConfig": {
+      "facets": [],
+      "mode": "row-based"
+    },
+    "columnName": "Location_col_merged",
+    "expression": "value",
+    "edits": [
+      {
+        "from": [
+          "     ",
+          ""
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "     "
+      }
+    ],
+    "description": "Modification en masse des cellules de la colonne Location_col_merged"
+  },
+  {
+    "op": "core/mass-edit",
+    "engineConfig": {
+      "facets": [],
+      "mode": "row-based"
+    },
+    "columnName": "Location_col_merged",
+    "expression": "value",
+    "edits": [
+      {
+        "from": [
+          "     ",
+          ""
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": ""
+      }
+    ],
+    "description": "Modification en masse des cellules de la colonne Location_col_merged"
+  },
+  {
+    "op": "core/text-transform",
+    "engineConfig": {
+      "facets": [],
+      "mode": "row-based"
+    },
+    "columnName": "Location_col_merged",
+    "expression": "value.trim()",
+    "onError": "keep-original",
+    "repeat": false,
+    "repeatCount": 10,
+    "description": "Transformer le texte sur les cellules de la colonne Location_col_merged à laide de lexpression value.trim()"
+  },
+  {
+    "op": "core/text-transform",
+    "engineConfig": {
+      "facets": [],
+      "mode": "row-based"
+    },
+    "columnName": "Location_col_merged",
+    "expression": "value.replace(/[\\p{Zs}\\s]+/,' ')",
+    "onError": "keep-original",
+    "repeat": false,
+    "repeatCount": 10,
+    "description": "Transformer le texte sur les cellules de la colonne Location_col_merged à laide de lexpression value.replace(/[\\p{Zs}\\s]+/,' ')"
+  },
+  {
+    "op": "core/column-split",
+    "engineConfig": {
+      "facets": [],
+      "mode": "row-based"
+    },
+    "columnName": "Location_col_merged",
+    "guessCellType": true,
+    "removeOriginalColumn": false,
+    "mode": "separator",
+    "separator": " ",
+    "regex": false,
+    "maxColumns": 0,
+    "description": "Diviser la colonne Location_col_merged par le séparateur"
+  },
+  {
+    "op": "core/mass-edit",
+    "engineConfig": {
+      "facets": [
+        {
+          "type": "list",
+          "name": "Location_col_merged 1",
+          "expression": "value",
+          "columnName": "Location_col_merged 1",
+          "invert": false,
+          "omitBlank": false,
+          "omitError": false,
+          "selection": [
+            {
+              "v": {
+                "v": "'s",
+                "l": "'s"
+              }
+            }
+          ],
+          "selectBlank": false,
+          "selectError": false
+        }
+      ],
+      "mode": "row-based"
+    },
+    "columnName": "Location_col_merged 1",
+    "expression": "value",
+    "edits": [
+      {
+        "from": [
+          "'s"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "Gravenhage"
+      }
+    ],
+    "description": "Modification en masse des cellules de la colonne Location_col_merged 1"
+  },
+  {
+    "op": "core/column-rename",
+    "oldColumnName": "Location_col_merged 1",
+    "newColumnName": "Location_clean",
+    "description": "Renommer la colonne Location_col_merged 1} en Location_clean"
+  },
+  {
+    "op": "core/column-removal",
+    "columnName": "Location 6",
+    "description": "Supprimer la colonne Location 6"
+  },
+  {
+    "op": "core/column-removal",
+    "columnName": "Location 5",
+    "description": "Supprimer la colonne Location 5"
+  },
+  {
+    "op": "core/column-removal",
+    "columnName": "Location 4",
+    "description": "Supprimer la colonne Location 4"
+  },
+  {
+    "op": "core/column-removal",
+    "columnName": "Location 3",
+    "description": "Supprimer la colonne Location 3"
+  },
+  {
+    "op": "core/column-removal",
+    "columnName": "Location 2",
+    "description": "Supprimer la colonne Location 2"
+  },
+  {
+    "op": "core/column-removal",
+    "columnName": "Location 1",
+    "description": "Supprimer la colonne Location 1"
+  },
+  {
+    "op": "core/column-move",
+    "columnName": "Location_clean",
+    "index": 15,
+    "description": "Déplacer la colonne Location_clean vers la position 15"
+  },
+  {
+    "op": "core/column-move",
+    "columnName": "Date",
+    "index": 20,
+    "description": "Déplacer la colonne Date vers la position 20"
+  },
+  {
+    "op": "core/column-move",
+    "columnName": "Date",
+    "index": 19,
+    "description": "Déplacer la colonne Date vers la position 19"
+  },
+  {
+    "op": "core/column-move",
+    "columnName": "Date",
+    "index": 18,
+    "description": "Déplacer la colonne Date vers la position 18"
+  },
+  {
+    "op": "core/column-move",
+    "columnName": "Date",
+    "index": 17,
+    "description": "Déplacer la colonne Date vers la position 17"
+  },
+  {
+    "op": "core/column-move",
+    "columnName": "Date",
+    "index": 16,
+    "description": "Déplacer la colonne Date vers la position 16"
+  },
+  {
+    "op": "core/column-rename",
+    "oldColumnName": "Location",
+    "newColumnName": "Location_intermediate",
+    "description": "Renommer la colonne Location} en Location_intermediate"
+  },
+  {
+    "op": "core/column-removal",
+    "columnName": "Location_col_merged 2",
+    "description": "Supprimer la colonne Location_col_merged 2"
+  },
+  {
+    "op": "core/column-removal",
+    "columnName": "Location_col_merged 3",
+    "description": "Supprimer la colonne Location_col_merged 3"
+  },
+  {
+    "op": "core/column-removal",
+    "columnName": "Location_col_merged 4",
+    "description": "Supprimer la colonne Location_col_merged 4"
+  },
+  {
+    "op": "core/column-removal",
+    "columnName": "Location_col_merged",
+    "description": "Supprimer la colonne Location_col_merged"
+  },
+  {
+    "op": "core/mass-edit",
+    "engineConfig": {
+      "facets": [],
+      "mode": "row-based"
+    },
+    "columnName": "Location_clean",
+    "expression": "value",
+    "edits": [
+      {
+        "from": [
+          "'",
+          "/",
+          "”"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": ""
+      },
+      {
+        "from": [
+          "The",
+          "“The"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": ""
+      },
+      {
+        "from": [
+          "Gravenhage",
+          "'Gravenhage"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "Gravenhage"
+      },
+      {
+        "from": [
+          "том",
+          "Том"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "том"
+      },
+      {
+        "from": [
+          "Zürich",
+          "Zurich"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "Zürich"
+      },
+      {
+        "from": [
+          "у",
+          "У"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": ""
+      },
+      {
+        "from": [
+          "Lipsiae",
+          "Lipsiæ"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "Lipsiae"
+      },
+      {
+        "from": [
+          "Québec",
+          "Quebec"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "Québec"
+      },
+      {
+        "from": [
+          "въ",
+          "Въ"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "въ"
+      },
+      {
+        "from": [
+          "ἐν",
+          "Ἐν"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "ἐν"
+      },
+      {
+        "from": [
+          "Groningae",
+          "Groningæ"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "Groningae"
+      },
+      {
+        "from": [
+          "Reggio",
+          "Reggio'"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "Reggio"
+      },
+      {
+        "from": [
+          "Kiev",
+          "Kīev"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "Kiev"
+      },
+      {
+        "from": [
+          "Liége",
+          "Liège"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "Liége"
+      },
+      {
+        "from": [
+          "México",
+          "Mexico"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "México"
+      },
+      {
+        "from": [
+          "Nimes",
+          "Nîmes"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "Nimes"
+      },
+      {
+        "from": [
+          "Montreal",
+          "Montréal"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "Montreal"
+      },
+      {
+        "from": [
+          "Dover",
+          "“Dover"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "Dover"
+      },
+      {
+        "from": [
+          "South",
+          "“South"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "South"
+      },
+      {
+        "from": [
+          "Albans",
+          "Alban's"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "Albans"
+      },
+      {
+        "from": [
+          "Mulhouse",
+          "Mulhousè"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "Mulhouse"
+      },
+      {
+        "from": [
+          "Brussel",
+          "Brüssel"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "Brussel"
+      }
+    ],
+    "description": "Modification en masse des cellules de la colonne Location_clean"
+  },
+  {
+    "op": "core/mass-edit",
+    "engineConfig": {
+      "facets": [],
+      "mode": "row-based"
+    },
+    "columnName": "Location_clean",
+    "expression": "value",
+    "edits": [
+      {
+        "from": [
+          "Kjøbenhavn",
+          "København",
+          "Kiøbenhavn",
+          "Kobenhavn",
+          "Københaven"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "Kjøbenhavn"
+      },
+      {
+        "from": [
+          "Kjøbenhavn",
+          "København",
+          "Kiøbenhavn",
+          "Kjøbenhan",
+          "Kjøbenhaven"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "Kjøbenhavn"
+      },
+      {
+        "from": [
+          "Kjøbenhavn",
+          "København",
+          "Kiøbenhavn",
+          "Kjøbenhaven"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "Kjøbenhavn"
+      },
+      {
+        "from": [
+          "Kjøbenhavn",
+          "Kjøbenhan",
+          "Kjøbenhaven"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "Kjøbenhavn"
+      },
+      {
+        "from": [
+          "Brussels",
+          "Brussel",
+          "Brussells"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "Brussels"
+      },
+      {
+        "from": [
+          "Schaffhausen",
+          "Schauffhausen",
+          "Schaffhauser"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "Schaffhausen"
+      },
+      {
+        "from": [
+          "København",
+          "Kjøbenhaven",
+          "Københaven"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "København"
+      },
+      {
+        "from": [
+          "Schaffhausen",
+          "Schaffhansen",
+          "Schaffhauser"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "Schaffhausen"
+      },
+      {
+        "from": [
+          "Hartford",
+          "Hertford",
+          "Dartford"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "Hartford"
+      },
+      {
+        "from": [
+          "Kjøbenhavn",
+          "Kjøbenhaven",
+          "Københaven"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "Kjøbenhavn"
+      },
+      {
+        "from": [
+          "Санктпетербургъ",
+          "Санктпетербург",
+          "Сапктпетербургъ"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "Санктпетербургъ"
+      },
+      {
+        "from": [
+          "Kjøbenhavn",
+          "København",
+          "Kiøbenhavn"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "Kjøbenhavn"
+      },
+      {
+        "from": [
+          "Castello",
+          "Castell",
+          "Castellon"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "Castello"
+      },
+      {
+        "from": [
+          "Oxford",
+          "Boxford"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "Oxford"
+      },
+      {
+        "from": [
+          "Caernarvon",
+          "Carnarvon"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "Caernarvon"
+      },
+      {
+        "from": [
+          "Frankfurt",
+          "Frankfort"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "Frankfurt"
+      },
+      {
+        "from": [
+          "Indianapolis",
+          "Indianopolis"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "Indianapolis"
+      },
+      {
+        "from": [
+          "Gloucester",
+          "Glocester"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "Gloucester"
+      },
+      {
+        "from": [
+          "Coblenz",
+          "Koblenz"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "Coblenz"
+      },
+      {
+        "from": [
+          "Trenton",
+          "Trento"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "Trenton"
+      },
+      {
+        "from": [
+          "Budapest",
+          "Budapet"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "Budapest"
+      },
+      {
+        "from": [
+          "København",
+          "Kobenhavn"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "København"
+      },
+      {
+        "from": [
+          "Pittsburgh",
+          "Pittsburg"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "Pittsburgh"
+      },
+      {
+        "from": [
+          "Andrews",
+          "Andrew"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "Andrews"
+      },
+      {
+        "from": [
+          "Rawtenshall",
+          "Rawtenstall"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "Rawtenshall"
+      },
+      {
+        "from": [
+          "Kjöbenhavn",
+          "Kiöbenhavn"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "Kjöbenhavn"
+      },
+      {
+        "from": [
+          "Brentford",
+          "Brantford"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "Brentford"
+      },
+      {
+        "from": [
+          "Trieste",
+          "Triest"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "Trieste"
+      },
+      {
+        "from": [
+          "Middlebury",
+          "Middleburg"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "Middlebury"
+      },
+      {
+        "from": [
+          "William",
+          "Williams"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "William"
+      },
+      {
+        "from": [
+          "Zagrebu",
+          "Zagreb"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "Zagrebu"
+      },
+      {
+        "from": [
+          "Dalston",
+          "Ralston"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "Dalston"
+      },
+      {
+        "from": [
+          "Karlsruhe",
+          "Carlsruhe"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "Karlsruhe"
+      },
+      {
+        "from": [
+          "Carlstad",
+          "Karlstad"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "Carlstad"
+      },
+      {
+        "from": [
+          "Warrington",
+          "Carrington"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "Warrington"
+      },
+      {
+        "from": [
+          "Burnham",
+          "Turnham"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "Burnham"
+      },
+      {
+        "from": [
+          "Edward",
+          "Edwards"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "Edward"
+      },
+      {
+        "from": [
+          "Stockholm",
+          "Stockhom"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "Stockholm"
+      },
+      {
+        "from": [
+          "München",
+          "Müncher"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "München"
+      },
+      {
+        "from": [
+          "Copenhague",
+          "Copenhagne"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "Copenhague"
+      },
+      {
+        "from": [
+          "Augusta",
+          "Augustæ"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "Augusta"
+      },
+      {
+        "from": [
+          "Anvers",
+          "Danvers"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "Anvers"
+      },
+      {
+        "from": [
+          "Cassel",
+          "Cassell"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "Cassel"
+      },
+      {
+        "from": [
+          "Hartford",
+          "Hertford"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "Hartford"
+      },
+      {
+        "from": [
+          "Valparaiso",
+          "Balparaiso"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "Valparaiso"
+      },
+      {
+        "from": [
+          "Vercelli",
+          "Vercellis"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "Vercelli"
+      },
+      {
+        "from": [
+          "Roberts",
+          "Robert"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "Roberts"
+      },
+      {
+        "from": [
+          "Barcelona",
+          "Barcelone"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "Barcelona"
+      },
+      {
+        "from": [
+          "Rivington",
+          "Rivingtons"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "Rivington"
+      },
+      {
+        "from": [
+          "Hamburg",
+          "Hamburgh"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "Hamburg"
+      },
+      {
+        "from": [
+          "Altenburg",
+          "Altenburgh"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "Altenburg"
+      },
+      {
+        "from": [
+          "Brompton",
+          "Bromptonæ"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "Brompton"
+      },
+      {
+        "from": [
+          "Klagenfurt",
+          "Klagenfurth"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "Klagenfurt"
+      },
+      {
+        "from": [
+          "Schaffhausen",
+          "Schaffhauser"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "Schaffhausen"
+      },
+      {
+        "from": [
+          "Mangalore",
+          "Bangalore"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "Mangalore"
+      },
+      {
+        "from": [
+          "Neuchâtel",
+          "Neufchâtel"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "Neuchâtel"
+      },
+      {
+        "from": [
+          "Castello",
+          "Castell"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "Castello"
+      },
+      {
+        "from": [
+          "Schaffhausen",
+          "Schauffhausen"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "Schaffhausen"
+      },
+      {
+        "from": [
+          "London",
+          "Londond"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "London"
+      },
+      {
+        "from": [
+          "Chambéry",
+          "Chambérg"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "Chambéry"
+      },
+      {
+        "from": [
+          "Санктпетербургъ",
+          "Санктпетербург"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "Санктпетербургъ"
+      },
+      {
+        "from": [
+          "Longmans",
+          "Longman"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "Longmans"
+      },
+      {
+        "from": [
+          "Copenhagen",
+          "Kopenhagen"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "Copenhagen"
+      },
+      {
+        "from": [
+          "Office",
+          "Offices"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": ""
+      },
+      {
+        "from": [
+          "Marburg",
+          "Marburgi"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "Marburg"
+      },
+      {
+        "from": [
+          "Bamberg",
+          "Amberg"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "Bamberg"
+      },
+      {
+        "from": [
+          "Magdeburg",
+          "Magdeburgh"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "Magdeburg"
+      },
+      {
+        "from": [
+          "Philadelphia",
+          "Phiadelphia"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "Philadelphia"
+      },
+      {
+        "from": [
+          "Ploughkeepsie",
+          "Poughkeepsie"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "Ploughkeepsie"
+      },
+      {
+        "from": [
+          "Kaiserslautern",
+          "Kaiserlautern"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "Kaiserslautern"
+      },
+      {
+        "from": [
+          "Innsbruck",
+          "Innsbruch"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "Innsbruck"
+      },
+      {
+        "from": [
+          "Saintes",
+          "Sainte"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "Saintes"
+      },
+      {
+        "from": [
+          "Gorinchem",
+          "Gorinchen"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "Gorinchem"
+      },
+      {
+        "from": [
+          "Kjøbenhavn",
+          "Kjøbenhaven"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "Kjøbenhavn"
+      },
+      {
+        "from": [
+          "Cracovie",
+          "Cracoviæ"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "Cracovie"
+      },
+      {
+        "from": [
+          "Schaffhausen",
+          "Schaffhansen"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "Schaffhausen"
+      },
+      {
+        "from": [
+          "Schlensingen",
+          "Schleusingen"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "Schlensingen"
+      },
+      {
+        "from": [
+          "Edinburgh",
+          "Edinburgi"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "Edinburgh"
+      },
+      {
+        "from": [
+          "Berwick",
+          "Lerwick"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "Berwick"
+      },
+      {
+        "from": [
+          "Санктпетербургъ",
+          "Сапктпетербургъ"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "Санктпетербургъ"
+      },
+      {
+        "from": [
+          "Oederan",
+          "Oederau"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "Oederan"
+      },
+      {
+        "from": [
+          "Knaresborough",
+          "Knaresbrough"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "Knaresborough"
+      },
+      {
+        "from": [
+          "Brussels",
+          "Brussel"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "Brussels"
+      },
+      {
+        "from": [
+          "Charleston",
+          "Charlestown"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "Charleston"
+      },
+      {
+        "from": [
+          "Stuttgart",
+          "Stuttgard"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "Stuttgart"
+      },
+      {
+        "from": [
+          "Issoire",
+          "Yssoire"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "Issoire"
+      },
+      {
+        "from": [
+          "Villefranche",
+          "Villefrancho"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "Villefranche"
+      },
+      {
+        "from": [
+          "San-Francisco",
+          "San-Franciso"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "San-Francisco"
+      },
+      {
+        "from": [
+          "Ярославль",
+          "Ярославлъ"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "Ярославль"
+      },
+      {
+        "from": [
+          "Kjøbenhavn",
+          "Kjøbenhan"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "Kjøbenhavn"
+      },
+      {
+        "from": [
+          "Београд",
+          "Београдъ"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "Београд"
+      },
+      {
+        "from": [
+          "Shanghai",
+          "Shanghae"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "Shanghai"
+      },
+      {
+        "from": [
+          "Brussels",
+          "Brussells"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "Brussels"
+      },
+      {
+        "from": [
+          "Aberdar",
+          "Aberdare"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "Aberdar"
+      },
+      {
+        "from": [
+          "Strasbourg",
+          "Strasburg"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "Strasbourg"
+      },
+      {
+        "from": [
+          "Alexandria",
+          "Alexandra"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "Alexandria"
+      },
+      {
+        "from": [
+          "Castello",
+          "Castellon"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "Castello"
+      },
+      {
+        "from": [
+          "Montpellier",
+          "Montpelier"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "Montpellier"
+      },
+      {
+        "from": [
+          "Hartford",
+          "Dartford"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "Hartford"
+      },
+      {
+        "from": [
+          "Portland",
+          "Cortland"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "Portland"
+      },
+      {
+        "from": [
+          "Basingstoke",
+          "Basingstok"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "Basingstoke"
+      },
+      {
+        "from": [
+          "Ἀθηνησι",
+          "Ἀθηνησιν"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "Ἀθηνησι"
+      },
+      {
+        "from": [
+          "Taunton",
+          "Staunton"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "Taunton"
+      },
+      {
+        "from": [
+          "Caernarvon",
+          "Caernarfon"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "Caernarvon"
+      },
+      {
+        "from": [
+          "Wheelin",
+          "Wheeling"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "Wheelin"
+      },
+      {
+        "from": [
+          "Roxbury",
+          "Roxburg"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "Roxbury"
+      }
+    ],
+    "description": "Modification en masse des cellules de la colonne Location_clean"
+  },
+  {
+    "op": "core/mass-edit",
+    "engineConfig": {
+      "facets": [],
+      "mode": "row-based"
+    },
+    "columnName": "Location_clean",
+    "expression": "value",
+    "edits": [
+      {
+        "from": [
+          "Kjøbenhavn",
+          "København"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "Kjøbenhavn"
+      }
+    ],
+    "description": "Modification en masse des cellules de la colonne Location_clean"
+  },
+  {
+    "op": "core/mass-edit",
+    "engineConfig": {
+      "facets": [
+        {
+          "type": "list",
+          "name": "Location_clean",
+          "expression": "value",
+          "columnName": "Location_clean",
+          "invert": false,
+          "omitBlank": false,
+          "omitError": false,
+          "selection": [
+            {
+              "v": {
+                "v": "'sGravenhage",
+                "l": "'sGravenhage"
+              }
+            }
+          ],
+          "selectBlank": false,
+          "selectError": false
+        }
+      ],
+      "mode": "row-based"
+    },
+    "columnName": "Location_intermediate",
+    "expression": "value",
+    "edits": [
+      {
+        "from": [
+          "'sGravenhage"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "Gravenhage"
+      }
+    ],
+    "description": "Modification en masse des cellules de la colonne Location_intermediate"
+  },
+  {
+    "op": "core/mass-edit",
+    "engineConfig": {
+      "facets": [
+        {
+          "type": "list",
+          "name": "Location_clean",
+          "expression": "value",
+          "columnName": "Location_clean",
+          "invert": false,
+          "omitBlank": false,
+          "omitError": false,
+          "selection": [
+            {
+              "v": {
+                "v": "'sGravenhage",
+                "l": "'sGravenhage"
+              }
+            }
+          ],
+          "selectBlank": false,
+          "selectError": false
+        }
+      ],
+      "mode": "row-based"
+    },
+    "columnName": "Location_clean",
+    "expression": "value",
+    "edits": [
+      {
+        "from": [
+          "'sGravenhage"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "Gravenhage"
+      }
+    ],
+    "description": "Modification en masse des cellules de la colonne Location_clean"
+  }
+]
