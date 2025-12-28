@@ -1,5 +1,5 @@
 Use this file to report the number of wrong rows in your sample:
 Koji:
-Victor: 35084, 33807, 37517, 36739, 26100, 16825 (here are some to check: 12909, 10520, 35784, 13610, 34688, 24621, 42756, 17983, 30781, 6194, 32395)
-Petar_cleaning
-Petar_data:
+Victor: 35084, 37517, 36739, 26100, 16825, 10520, 35784, 13610, 17983
+Petar_cleaning: 935, 1524, 6925, 7738, 13747, 17859, 20144, 26691, 38085, 38254, 39119, 40399, 41699, 44254, 45333, 46070, 48798
+Petar_data: 849, 40366
